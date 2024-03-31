@@ -3,7 +3,7 @@
 ******************************************
 *CLUSTER4
 /*********1.1 total export*********/
-use "E:\RCEP\data\sector_processed_data\export_Cluster4_2.dta",clear
+use "E:\RCEP\data\sector_processed_data\export_Cluster4.dta",clear
 keep if Year==1995|Year==2000| Year==2005| Year==2010| Year==2015| Year==2018
 keep if Exp_ind == "DTOTAL"
 gen ln_distance=ln(dist)
@@ -87,7 +87,7 @@ b(3) se(3) star(* .10 ** .05 *** .01) nogaps noconstant n replace
 save "E:\RCEP\data\sector_processed_data\2018.dta_cluster4",replace
 
 /*********1.2 Agriculture*********/
-use "E:\RCEP\data\sector_processed_data\export_Cluster4_2.dta",clear
+use "E:\RCEP\data\sector_processed_data\export_Cluster4.dta",clear
 //keep if Year==1995|Year==2000| Year==2005| Year==2010| Year==2015| Year==2018
 keep if Year==1996|Year==2002| Year==2008| Year==2015| Year==2017| Year==2018
 keep if Exp_ind == "D01T03"
@@ -145,7 +145,7 @@ stats(N r2, fmt(0 2) labels(Obs. R-squared))    ///
 b(3) se(3) star(* .10 ** .05 *** .01) nogaps noconstant n replace 
 
 /*********1.3 Manufacturing*********/
-use "E:\RCEP\data\sector_processed_data\export_Cluster4_2.dta",clear
+use "E:\RCEP\data\sector_processed_data\export_Cluster4.dta",clear
 //keep if Year==1995|Year==2000| Year==2005| Year==2010| Year==2015| Year==2018
 keep if Year==1996|Year==2002| Year==2008| Year==2015| Year==2017| Year==2018
 keep if Exp_ind == "D10T33"
@@ -204,7 +204,7 @@ b(3) se(3) star(* .10 ** .05 *** .01) nogaps noconstant n replace
 
 
 /*********1.4 Services*********/
-use "E:\RCEP\data\sector_processed_data\export_Cluster4_2.dta",clear
+use "E:\RCEP\data\sector_processed_data\export_Cluster4.dta",clear
 keep if Year==1995|Year==2000| Year==2005| Year==2010| Year==2015| Year==2018
 keep if Exp_ind == "D45T82"
 gen ln_distance=ln(dist)
@@ -383,7 +383,7 @@ b(3) se(3) star(* .10 ** .05 *** .01) nogaps noconstant n replace
 /*********2.1 total export*********/
 
 ****************************** PART (i) *****************************
-use "E:\RCEP\data\sector_processed_data\RTAImpacts_total_cluster4_2.dta",clear
+use "E:\RCEP\data\sector_processed_data\RTAImpacts_total_cluster4.dta",clear
 rename Exp_cou exporter
 rename Imp_cou importer
 rename Year year
