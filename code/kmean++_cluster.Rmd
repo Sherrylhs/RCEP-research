@@ -1,0 +1,89 @@
+---
+title: "matrix cluster"
+output: html_document
+---
+```{r}
+library("cowplot")
+```
+
+```{r}
+library("LICORS")
+library("factoextra")
+library(cluster)
+library(haven)
+library(tidyverse)
+library(fpc)
+```
+
+```{r}
+options(max.print=1000000)
+```
+
+#import data
+```{r}
+data<-read_dta("D:/RCEP/data/gravity_raw_data/matrix.dta")
+data<-na.omit(data)
+m=as.matrix(data[ , 1])
+v=as.vector(m)
+data<-data[ , -1]
+row.names(data)<-v
+data<-as.matrix(data)
+deepRTA<- t(data)
+deepRTA<-as.data.frame(deepRTA)
+```
+#scale
+```{r}
+deepRTA <- scale(deepRTA)
+view(deepRTA)
+```
+
+#Clustering Distance Measures
+```{r}
+distance <- get_dist(deepRTA)
+fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07"))
+```
+
+#Determining Optimal Clusters
+*1.Elbow method
+```{r}
+set.seed(123)
+fviz_nbclust(deepRTA, kmeans, method = "wss")
+```
+*2.Gap Statistic Method
+```{r}
+set.seed(123)
+## Compute the gap statistic
+gap_stat <- clusGap(deepRTA, FUN = kmeans, nstart = 25, K.max = 10, B = 200)
+# Plot the result
+fviz_gap_stat(gap_stat)
+```
+
+*3.Silhouette method
+```{r}
+fviz_nbclust(deepRTA, kmeans, method = "silhouette")
+ggsave("Silhouette_Value.jpeg",device = "jpeg", path= "E:/RCEP/data/sector_output", width = 8, height = 5)
+
+```
+
+#Extracting Results
+```{r}
+# Compute k-means++ clustering with k = 4
+set.seed(123)
+RTAcluster1 <- kmeanspp(deepRTA,4,nstart = 200)
+print(RTAcluster1$cluster)
+fviz_cluster(RTAcluster1, data = deepRTA) +
+  theme_cowplot(12)
+ggsave("Cluster4_plot.jpeg",device = "jpeg", path= "E:/RCEP/data/sector_output", width = 8, height = 5)
+```
+
+```{r}
+deepRTA %>%
+mutate(Cluster = RTAcluster1$cluster) %>%
+group_by(Cluster) %>%
+summarise_all("mean")
+
+deepRTA1<-deepRTA %>%
+mutate(Cluster = RTAcluster1$cluster)
+deepRTA1=cbind(Agreement=row.names(deepRTA1), deepRTA1)
+write_csv(deepRTA1, "C:/Users/Sherry/Desktop/cluster4.csv")
+```
