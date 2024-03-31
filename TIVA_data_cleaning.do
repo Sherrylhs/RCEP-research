@@ -1,3 +1,7 @@
+*****************************************
+*******1. gen final export dataset ******
+*****************************************
+
 *******data merge*******
 use "D:\RCEP Research\data\gravity_raw_data\TIVA\latest_year\EXGR.dta",clear
 sort Year Exp_cou Exp_ind Imp_cou
