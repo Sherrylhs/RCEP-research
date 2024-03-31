@@ -115,7 +115,7 @@ order RCEP, after (RTA)
 save "D:\RCEP\data\sector_processed_data\export_INTL_latest.dta",replace
 
 ***************************************
-*******4. gen FD export dataset *******
+*******3. gen FD export dataset *******
 ***************************************
 
 use "D:\RCEP Research\data\gravity_raw_data\TIVA\latest_year\EXGR_FNL.dta",clear
@@ -150,6 +150,9 @@ drop _merge year exporter importer match2
 order RCEP, after (RTA)
 save "D:\RCEP\data\sector_processed_data\export_FD_latest.dta",replace
 
+***********************************
+*******4. gen other dataset *******
+***********************************
 
 *********************gen country dataset code*****************
 use "D:\RCEP Research\data\gravity_raw_data\Gravity_dta_V202102\Countries_V202102.dta",clear
