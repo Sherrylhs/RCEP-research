@@ -5,7 +5,7 @@ This is the Code and data for the essay "General equilibrium analysis of the eff
 You can view the essay first. We conducting counterfactual simulation analysis based on the structural gravity model, to explore the effect of RCEP on trade flow and welfare between member countries and non-member countries.
 
 *2. code*   
-This file provides the stata and R code for this essay.  
-"TIVA_data_cleaning.do" & "TiVA_analysis.do": stata code for the first type of counterfactual in the essay.  
-"kmean++_cluster.Rmd" : R code for kmean++ algorithm, to divide RTAs into 4 clusters.  
-"TIVA_data_cleaning.do" & "TiVA_analysis.do": stata code for the first type of counterfactual in the essay.  
+This file provides the stata and R code for this essay. The file structure is as follows:  
+  "TIVA_data_cleaning.do" & "TiVA_analysis.do": stata code for the first type of counterfactual in the essay.  
+  "kmean++_cluster.Rmd" : R code for kmean++ algorithm, to divide RTAs into 4 clusters.  
+  "TIVA_data_cleaning.do" & "TiVA_analysis.do": stata code for the second type of counterfactual in the essay.  
