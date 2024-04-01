@@ -11,6 +11,6 @@ This file provides the stata and R code for this essay. The file structure is as
   "kmean++_cluster.Rmd" : R code for kmean++ algorithm, to divide RTAs into 4 clusters.  
 
 *3. Processed Data*   
-This file provides the data for this essay:
+This file provides the data for this essay:  
   "export_latest.dta" : final dataset for the first type of counterfactual.  
   "export_Cluster4.dta": final dataset for the second type of counterfactual.  
