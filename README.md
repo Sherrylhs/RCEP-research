@@ -6,9 +6,9 @@ You can read the essay first. We conduct counterfactual simulation analysis base
 
 *2. code*   
 This file provides the stata and R code for this essay. The file structure is as follows:  
-  "TIVA_data_cleaning.do" & "TiVA_analysis.do": stata code for the first type of counterfactual.  
-  "DeepRTA_ data_cleaning.do" & "DeepRTA_analysis.do": stata code for the second type of counterfactual.  
-  "kmean++_cluster.Rmd" : R code for kmean++ algorithm to divide RTAs into 4 clusters.  
+  *"TIVA_data_cleaning.do" & "TiVA_analysis.do": stata code for the first type of counterfactual.  
+  *"DeepRTA_ data_cleaning.do" & "DeepRTA_analysis.do": stata code for the second type of counterfactual.  
+  *"kmean++_cluster.Rmd" : R code for kmean++ algorithm to divide RTAs into 4 clusters.  
 
 *3. Processed Data*   
 This file provides the data for this essay:  
