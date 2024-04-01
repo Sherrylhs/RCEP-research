@@ -12,5 +12,5 @@ This file provides the stata and R code for this essay. The file structure is as
 
 *3. Processed Data*   
 This file provides the data for this essay:  
-  "export_latest.dta" : final dataset for the first type of counterfactual.  
-  "export_Cluster4.dta": final dataset for the second type of counterfactual.  
+  * "export_latest.dta" : final dataset for the first type of counterfactual.  
+  * "export_Cluster4.dta": final dataset for the second type of counterfactual.  
